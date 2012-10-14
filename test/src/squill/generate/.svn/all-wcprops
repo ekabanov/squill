@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/squill~svn/!svn/ver/180/trunk/test/src/squill/generate
+END
+VelocityTupleGeneratorTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/squill~svn/!svn/ver/180/trunk/test/src/squill/generate/VelocityTupleGeneratorTest.java
+END
+TupleGeneratorTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/squill~svn/!svn/ver/180/trunk/test/src/squill/generate/TupleGeneratorTest.java
+END
+test.vm
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/squill~svn/!svn/ver/99/trunk/test/src/squill/generate/test.vm
+END
+VelocityGeneratorTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/squill~svn/!svn/ver/163/trunk/test/src/squill/generate/VelocityGeneratorTest.java
+END

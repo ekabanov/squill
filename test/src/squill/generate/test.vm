@@ -1,0 +1,5 @@
+Value: ${Integer.intValue()}
+#foreach ($i in [1..$Integer.intValue()])
+    Tuple$i #gtuple($i)
+
+#end

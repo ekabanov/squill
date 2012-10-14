@@ -1,0 +1,12 @@
+#macro (gen $i $type) #foreach ($idx in [1..$i])#if ($idx != 1),#end${type}${idx}#end #end
+#macro (join $i $text $delim) #foreach ($idx in [1..$i])#if ($idx != 1)$delim#end${text}#end #end
+#macro (tuple $i) Tuple$i #end
+
+## For OrderByGenerator
+#macro (pselect $i) #foreach ($idx in [1..$i])#if ($idx != 1),#end SelectExpression<F${idx}> select${idx}#end #end
+#macro (select $i) #foreach ($idx in [1..$i])#if ($idx != 1),#end select${idx}#end #end
+#macro (gtuple $i) #tuple($i)<#gen($i "F")> #end
+## For TupleGenerator
+#macro (ttuple $i) #tuple($i)<#gen($i "T")> #end
+#macro (value $i) #foreach ($idx in [1..$i]) T${idx}> v${idx}#end #end
+#macro (pvalue $i) #foreach ($idx in [1..$i])#if ($idx != 1),#end T${idx} v${idx}#end #end

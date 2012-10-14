@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/squill~svn/!svn/ver/233/trunk/src/squill/generate
+END
+VelocityTupleGenerator.java
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/squill~svn/!svn/ver/163/trunk/src/squill/generate/VelocityTupleGenerator.java
+END
+TupleGenerator.java
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/squill~svn/!svn/ver/163/trunk/src/squill/generate/TupleGenerator.java
+END
+OrderByBuilderGenerator.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/squill~svn/!svn/ver/163/trunk/src/squill/generate/OrderByBuilderGenerator.java
+END
+Macros.vm
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/squill~svn/!svn/ver/163/trunk/src/squill/generate/Macros.vm
+END
+VelocityGenerator.java
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/squill~svn/!svn/ver/233/trunk/src/squill/generate/VelocityGenerator.java
+END
+Tuple.vm
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/squill~svn/!svn/ver/163/trunk/src/squill/generate/Tuple.vm
+END
+OrderByBuilder.vm
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/squill~svn/!svn/ver/163/trunk/src/squill/generate/OrderByBuilder.vm
+END

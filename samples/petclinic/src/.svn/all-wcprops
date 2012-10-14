@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/squill~svn/!svn/ver/267/trunk/samples/petclinic/src
+END
+messages.properties
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/squill~svn/!svn/ver/130/trunk/samples/petclinic/src/messages.properties
+END
+log4j.properties
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/squill~svn/!svn/ver/165/trunk/samples/petclinic/src/log4j.properties
+END
+jdbc.properties
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/squill~svn/!svn/ver/130/trunk/samples/petclinic/src/jdbc.properties
+END

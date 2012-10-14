@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/squill~svn/!svn/ver/267/trunk/samples/petclinic
+END
+squill.properties
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/squill~svn/!svn/ver/142/trunk/samples/petclinic/squill.properties
+END
+build.xml
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/squill~svn/!svn/ver/167/trunk/samples/petclinic/build.xml
+END
+jetty.xml
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/squill~svn/!svn/ver/133/trunk/samples/petclinic/jetty.xml
+END

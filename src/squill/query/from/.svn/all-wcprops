@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/squill~svn/!svn/ver/163/trunk/src/squill/query/from
+END
+FromExpression.java
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/squill~svn/!svn/ver/163/trunk/src/squill/query/from/FromExpression.java
+END
+JoinElement.java
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/squill~svn/!svn/ver/163/trunk/src/squill/query/from/JoinElement.java
+END
+OrmJoin.java
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/squill~svn/!svn/ver/163/trunk/src/squill/query/from/OrmJoin.java
+END

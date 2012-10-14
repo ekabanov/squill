@@ -1,0 +1,9 @@
+squill.version = 1.0-M2
+java.package=simple.data
+output.path=samples/simple/src
+database.driver=org.hsqldb.jdbcDriver
+database.url=jdbc:hsqldb:hsql://localhost/squilldemodb
+database.user=SA
+database.schema=PUBLIC
+database.password=
+naming.strategy=

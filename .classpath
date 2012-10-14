@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="mgen/src"/>
+	<classpathentry kind="src" path="test/src"/>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" output="samples/petclinic/war/WEB-INF/classes" path="samples/petclinic/src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="con" path="org.maven.ide.eclipse.MAVEN2_CLASSPATH_CONTAINER"/>
+	<classpathentry kind="lib" path="lib/asm-all-3.2.jar"/>
+	<classpathentry kind="lib" path="lib/commons-logging-1.1.1.jar"/>
+	<classpathentry kind="lib" path="lib/build/UmlGraph.jar"/>
+	<classpathentry kind="lib" path="samples/petclinic/war/WEB-INF/lib/antlr-2.7.6.jar"/>
+	<classpathentry kind="lib" path="samples/petclinic/war/WEB-INF/lib/aspectjrt.jar"/>
+	<classpathentry kind="lib" path="samples/petclinic/war/WEB-INF/lib/aspectjweaver.jar"/>
+	<classpathentry kind="lib" path="samples/petclinic/war/WEB-INF/lib/commons-collections.jar"/>
+	<classpathentry kind="lib" path="samples/petclinic/war/WEB-INF/lib/commons-dbcp.jar"/>
+	<classpathentry kind="lib" path="samples/petclinic/war/WEB-INF/lib/commons-logging.jar"/>
+	<classpathentry kind="lib" path="samples/petclinic/war/WEB-INF/lib/commons-pool.jar"/>
+	<classpathentry kind="lib" path="samples/petclinic/war/WEB-INF/lib/connector.jar"/>
+	<classpathentry kind="lib" path="samples/petclinic/war/WEB-INF/lib/dom4j-1.6.1.jar"/>
+	<classpathentry kind="lib" path="samples/petclinic/war/WEB-INF/lib/jstl.jar"/>
+	<classpathentry kind="lib" path="samples/petclinic/war/WEB-INF/lib/jta.jar"/>
+	<classpathentry kind="lib" path="samples/petclinic/war/WEB-INF/lib/spring-aspects.jar"/>
+	<classpathentry kind="lib" path="samples/petclinic/war/WEB-INF/lib/spring-webmvc.jar"/>
+	<classpathentry kind="lib" path="samples/petclinic/war/WEB-INF/lib/spring.jar"/>
+	<classpathentry kind="lib" path="samples/petclinic/war/WEB-INF/lib/squill.jar"/>
+	<classpathentry kind="lib" path="samples/petclinic/war/WEB-INF/lib/standard.jar"/>
+	<classpathentry kind="lib" path="lib/velocity-1.6.4-dep.jar"/>
+	<classpathentry kind="lib" path="lib/build/junit-4.8.2.jar"/>
+	<classpathentry kind="lib" path="lib/build/ant-1.8.1.jar"/>
+	<classpathentry kind="lib" path="lib/build/postgresql-8.4-701.jdbc4.jar"/>
+	<classpathentry kind="lib" path="lib/build/mysql-connector-java-5.1.12-bin.jar"/>
+	<classpathentry kind="lib" path="lib/build/cobertura-1.9.4.1.jar"/>
+	<classpathentry kind="lib" path="lib/build/ojdbc-11.2.0.1.0_java5.jar"/>
+	<classpathentry kind="lib" path="samples/petclinic/war/WEB-INF/lib/log4j-1.2.15.jar"/>
+	<classpathentry kind="lib" path="lib/build/log4j-1.2.16.jar"/>
+	<classpathentry kind="lib" path="lib/build/hsqldb.jar"/>
+	<classpathentry kind="output" path="build"/>
+</classpath>

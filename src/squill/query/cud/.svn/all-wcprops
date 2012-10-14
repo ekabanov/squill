@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/squill~svn/!svn/ver/250/trunk/src/squill/query/cud
+END
+UpdateFieldElement.java
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/squill~svn/!svn/ver/250/trunk/src/squill/query/cud/UpdateFieldElement.java
+END
+InsertFieldElement.java
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/squill~svn/!svn/ver/163/trunk/src/squill/query/cud/InsertFieldElement.java
+END
+CUDElement.java
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/squill~svn/!svn/ver/163/trunk/src/squill/query/cud/CUDElement.java
+END
+UpdateCruElement.java
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/squill~svn/!svn/ver/240/trunk/src/squill/query/cud/UpdateCruElement.java
+END
+InsertCruElement.java
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/squill~svn/!svn/ver/163/trunk/src/squill/query/cud/InsertCruElement.java
+END
+AbstractCUDElement.java
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/squill~svn/!svn/ver/163/trunk/src/squill/query/cud/AbstractCUDElement.java
+END
+DeleteElement.java
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/squill~svn/!svn/ver/163/trunk/src/squill/query/cud/DeleteElement.java
+END
+UpdateElement.java
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/squill~svn/!svn/ver/163/trunk/src/squill/query/cud/UpdateElement.java
+END
+InsertElement.java
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/squill~svn/!svn/ver/163/trunk/src/squill/query/cud/InsertElement.java
+END

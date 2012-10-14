@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project basedir="." default="build" name="Squill">
+	<description>
+<![CDATA[################################################
+#   SQUILL - A typesafe SQL EDSL for Java      #
+#                                              #
+#             https://squill.dev.java.net/     #
+################################################]]>
+	</description>
+	
+  <property file="project.properties" />
+  <property file="build.properties" />
+  
+  <!--Set the classpath-->
+  <path id="classpath">
+  	<pathelement location="dist/squill.jar"/>
+    <fileset dir="lib" includes="**/*.jar" />
+  </path >
+	
+  <!--Set the sourcepath-->
+  <path id="sourcepath">
+  	<pathelement location="src"/>
+  	<pathelement location="mgen/src"/>
+  </path >
+
+  <!-- Initialize the build system -->
+  <target name="init">
+    <mkdir dir="build" />
+  </target>
+	
+  <!-- Build the code -->
+  <target name="dist" depends="jar" description="Produce Squill library and generator JARs to dist folder">
+    <zip destfile="dist/squill-${squill.version}.zip">
+      <zipfileset dir="." prefix="squill-${squill.version}">
+      	<include name="dist/squill.jar"/>
+      	<include name="src/**"/>
+      	<include name="mgen/**"/>
+      	<include name="doc/**"/>
+      	<include name="lib/*.jar"/>
+      	<exclude name="**/.svn/**/*"/>
+     	</zipfileset>
+      <zipfileset dir="etc/dist" prefix="squill-${squill.version}" />
+      <zipfileset dir="build" includes="doc/**" prefix="squill-${squill.version}" />
+    </zip>
+  	
+    <zip destfile="dist/squill-with-examples-${squill.version}.zip">
+      <zipfileset src="dist/squill-${squill.version}.zip"/>
+      <zipfileset dir="." prefix="squill-${squill.version}">
+      	<include name="samples/**"/>
+      	<exclude name="**/.svn/**/*"/>
+      	<exclude name="samples/*/war/WEB-INF/classes/**/*"/>
+     	</zipfileset>
+    </zip>
+  	
+  </target>
+	
+	<!-- Build the code -->
+	  <target name="build" depends="jar" description="Build the Squill library and generator.">
+	  </target>
+	
+	<!-- Clean up build system results -->
+	  <target name="clean" description="Clean all build and distribution folders.">
+	    <delete dir="build" failonerror="true" />
+	    <delete dir="dist" failonerror="true" />
+	</target>
+
+  <target name="compile" depends="init">
+    <mkdir dir="build" />
+
+    <javac destdir="build" debug="on" debuglevel="lines,vars,source" encoding="utf-8" target="1.5" 
+    	source="1.5" srcdir="src" deprecation="yes" failonerror="true" classpathref="classpath">
+    </javac>
+  	
+    <javac destdir="build" debug="on" debuglevel="lines,vars,source" encoding="utf-8" target="1.5" 
+    	source="1.5" srcdir="mgen/src" deprecation="yes" failonerror="true" classpathref="classpath" >
+    </javac>
+  	
+  	<copy todir="build">
+  		<fileset dir="mgen/src">
+  			<include name="**/*.vm"/>
+  		</fileset>
+  		<fileset dir="src">
+  			<include name="**/*.vm"/>
+  		</fileset>
+    </copy>
+  </target>
+
+  <target name="jar" depends="compile">
+    <mkdir dir="dist" />
+
+    <jar destfile="dist/squill.jar" compress="true" >
+      <fileset dir="build" includes="squill/**" />
+    </jar>   
+  </target>
+	
+  <target
+    name="gen-test"
+    depends="build"
+    description="Generate mapping files out of database. See build.properties for connection details.">
+
+    <taskdef
+      name="generate-java"
+    	classpathref="classpath"
+      classname="squill.mgen.SquillMappingsTask"/>
+  	
+    <generate-java
+      driver="org.hsqldb.jdbcDriver"
+      url="jdbc:hsqldb:hsql://localhost/squilldemodb"
+      schema="PUBLIC"
+      user="SA"
+      packageName="squill.model"
+      outputPath="test/src"
+    />
+  </target>	
+	
+  <target name="db" description="Run HsqlDb DATABASE.">
+    <java classname="org.hsqldb.Server" dir="test/data" fork="yes">
+      <classpath>
+        <pathelement location="lib/build/hsqldb.jar" />
+      </classpath>
+      <arg line="-database.0 'squilldemodb' -dbname.0 'squilldemodb'" />
+    </java>
+  </target>
+
+  <!-- Run database manager -->
+  <target name="db-manager" description="Run HsqlDb DATABASE manager.">
+    <java classname="org.hsqldb.util.DatabaseManagerSwing" dir="test/data" fork="yes">
+      <classpath>
+        <pathelement location="lib/build/hsqldb.jar" />
+      </classpath>
+      <arg line="--user sa --url jdbc:hsqldb:hsql://localhost/squilldemodb" />
+    </java>
+  </target>
+	
+	<target name="test" depends="build" description="Runs JUnit tests.">
+	  <mkdir dir="build/test" />
+	  
+    <javac destdir="build/test" debug="on" debuglevel="lines,vars,source" encoding="utf-8" target="1.5" 
+      source="1.5" srcdir="test/src" deprecation="yes" failonerror="false" classpathref="classpath">
+      <classpath>
+        <pathelement location="build/squill" />
+      </classpath>
+    </javac>
+	  
+		<junit fork="yes" printsummary="withOutAndErr" showoutput="on" >		
+			<!--jvmarg line="-Xdebug -Xrunjdwp:server=y,transport=dt_socket,address=5999,suspend=y"/-->
+			<classpath>
+			  <pathelement location="build/cobertura" />
+			  <pathelement location="build/squill" />
+			  <pathelement location="build/test" />
+			  <pathelement location="test/src" />
+			</classpath>
+			<classpath refid="classpath"/>
+			<formatter type="plain" usefile="false"/>
+			<batchtest todir="build/test">
+				<fileset dir="build/test" includes="squill/tests/**/*Test.class" />
+			</batchtest>
+		</junit>
+	</target>
+  
+  <taskdef classpathref="classpath" resource="tasks.properties" />
+  
+  <!-- - - - - - - - - - - - - - - - - - 
+          target: cobertura                      
+         - - - - - - - - - - - - - - - - - -->
+    <target name="cobertura">
+      <delete file="cobertura.ser" />
+
+      <cobertura-instrument todir="build/cobertura">
+          <fileset dir="build/squill">
+              <include name="**/*.class" />
+          </fileset>
+      </cobertura-instrument>        
+    </target>
+
+  
+  <!-- ================================= 
+          target: test-coverage              
+         ================================= -->
+    <target name="test-coverage" depends="build, cobertura, test" description="description">
+      <cobertura-report format="html" destdir="build/cobertura-report" srcdir="src" />
+    </target>
+	
+	<!-- JavaDoc with class diagram -->
+	<target name="javadocs" depends="compile">
+	        <javadoc sourcepathref="sourcepath" packagenames="net.java.dev.squill.*,squill.*" destdir="doc/javadoc" 
+	                 private="true">
+	                <doclet name="org.umlgraph.doclet.UmlGraphDoc" path="lib/build/UMLGraph.jar">
+	                        <param name="-all"/>
+	                        <param name="-inferrel"/>
+	                        <param name="-inferdep"/>
+	                        <param name="-hide" value="java.*"/>
+	                        <param name="-collpackages" value="java.util.*"/>
+	                        <param name="-qualify"/>
+	                        <param name="-postfixpackage"/>
+	                        <param name="-nodefontsize" value="9"/>
+	                        <param name="-nodefontpackagesize" value="7"/>
+	                        <param name="-link" value="http://java.sun.com/javase/6/docs/jdk/api/javadoc/doclet/"/>
+	                        <param name="-link" value="http://java.sun.com/javase/6/docs/api/"/>
+	                </doclet>
+	        </javadoc>
+	</target>
+</project>
+

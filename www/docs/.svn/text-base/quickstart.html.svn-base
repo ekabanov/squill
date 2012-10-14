@@ -1,0 +1,67 @@
+<html>
+<head><title>Squill QuickStart</title></head>
+<body>
+<h1>Squill QuickStart</h1>
+
+<h2>Step 1. Build Metadata</h2>
+
+<p>This will generate fresh Squill metadata classes from your database.</p> 
+
+<pre>
+ &lt;target
+   name="squill-gen"&gt;
+
+   &lt;taskdef
+      name="squill-gen"
+   	classpathref="classpath"
+     classname="squill.mgen.SquillMappingsTask"/&gt;
+ 	
+   &lt;squill-gen
+     driver="org.hsqldb.jdbcDriver"
+     url="jdbc:hsqldb:hsql://localhost/petclinic"
+     schema="PUBLIC"
+     user="SA"
+     password=""
+     packageName="org.springframework.samples.petclinic.data"
+     outputPath="samples/petclinic/src"&gt;   	
+   &lt;/squill-gen&gt;
+ &lt;/target>
+</pre>
+
+<h2>Step 2. Make Queries and Statements</h2>
+
+<ul>
+<li>You should create an instance of every table you use (<code>PetTable pet = new PetTable()</code>). </li>
+<li>Columns are available as it's fields (<code>pet.id</code>, <code>pet.name</code>, etc). </li>
+<li>Add <code>import static squill.Squill;</code> and <code>import static squill.functions.Operations.*;</code> to your imports. 
+    <br/>Create an instance of <code>Squill</code> passing it the data source (<code>Squill squill = new Squill(dataSource);</code>).</li>
+<li>All queries start with a call to <code>squill.from()</code>, all statements with <code>squill.insert()/update()/delete()</code>.</li> 
+<li>Individual functions and operators (<i>eq</i>, <i>concat</i>, <i>asc</i>) are static functions that should be composed (<code>eq(pets.id, 4)</code>).</li>
+<li>Clauses (<i>order by</i>, <i>select</i>, <i>where</i>, etc) are added using method chaining (<code>squill.from(pet).where(eq(pet.id, 4)).select(pet.name)</code>). </li>
+<li>Squill also supports some lightweight ORM features to manipulate whole data objects at once (but those objects are one-to-one with the database).
+    <br/>E.g. passing the table to <code>select()</code> retuns that object: <code>List&lt;PetData&gt; pets = squill.from(pet).selectList(pet)</code></li>
+</ul>
+
+<h2>Step 3. Enjoy! </h2>
+
+<pre>
+  ComplaintTable c = new ComplaintTable();
+	
+  for (Tuple2<String, Integer> tuple2: 
+    squill
+      .from(c, c.customer)
+      .where(
+        gt(c.customer.isActive, 0), 
+        notNull(c.percentSolved),  
+        notNull(c.refoundSum))
+      .orderBy(desc(c.customer.id))
+      .selectList(
+        c.customer.lastName,
+        c.percentSolved)) {
+    System.out.println(
+      "Customer " + tuple2.v1 + " has a complaint solved " + tuple2.v2 + "%"); 
+  }
+</pre>
+
+</body>
+</html>

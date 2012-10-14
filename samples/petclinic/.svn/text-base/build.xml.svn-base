@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project basedir="." default="build" name="SquillClinic">
+
+	<property file="project.properties" />
+	<property file="build.properties" />
+	
+	<property environment="env"/>
+	
+	<!--Set the classpath-->
+	<path  id="classpath">
+		<pathelement location="../../dist/squill.jar"/>
+		<pathelement location="war/WEB-INF/classes"/>
+		<fileset dir="../../lib" includes="**/*.jar"/>
+		<fileset dir="war/WEB-INF/lib" includes="**/*.jar" />
+	</path >
+	
+	<echo message="${env.ANT_HOME}/lib/ant.jar"></echo>
+	
+	<path id="classpath.jetty" description="The Jetty classpath to run the demo application.">
+		<fileset dir="../lib/jetty" includes="*.jar"/>
+		<pathelement location="${env.JAVA_HOME}/lib/tools.jar"/>
+		<pathelement location="${env.ANT_HOME}/lib/ant.jar"/>
+		<pathelement location="${env.ANT_HOME}/lib/ant-launcher.jar"/>
+	</path>	
+	
+	<path id="classpath.hsqldb" description="The HSQLDB classpath to run the demo application.">
+		<fileset dir="../lib/hsqldb" includes="*.jar"/>
+	</path>	
+
+	<!-- Initialize the build system -->
+	<target name="init">
+	</target>
+
+	<!-- Build the code -->
+	<target name="build" depends="compile" description="Build the Squill library and generator.">
+	</target>
+
+	<target
+	    name="gen"
+	    description="Generate mapping files out of database. See build.properties for connection details.">
+
+		<taskdef
+	       name="generate-java"
+	    	classpathref="classpath"
+	      classname="squill.mgen.SquillMappingsTask"/>
+
+		<javac destdir="war/WEB-INF/classes" debug="on" debuglevel="lines,vars,source" encoding="utf-8" target="1.5" 
+	    	source="1.5" srcdir="src" deprecation="yes" failonerror="false" classpathref="classpath" 
+	    	includes="org/springframework/samples/petclinic/*.java">
+		</javac>
+
+		<generate-java
+	      driver="org.hsqldb.jdbcDriver"
+	      url="jdbc:hsqldb:hsql://localhost/petclinic"
+	      user="SA"
+	      packageName="org.springframework.samples.petclinic.data"
+	      outputPath="src"
+	    	namingstrategy="PluralCamelCaseNaming"
+			  namingoverride="squill.properties">
+			<fileset dir="war/WEB-INF/classes/org/springframework/samples/petclinic/" includes="*.class"/>
+		</generate-java>
+	</target>
+
+	<!-- Clean up build system results -->
+	<target name="clean" description="Clean all build and distribution folders.">
+		<delete dir="war/WEB-INF/classes" failonerror="false" />
+		<delete dir="dist" failonerror="false" />
+	</target>
+
+	<target name="compile" depends="init">
+
+		<copy todir="war/WEB-INF/lib" file="../../dist/squill.jar"/>
+
+		<copy todir="war/WEB-INF/classes">
+			<fileset dir="src" excludes="**/*.java"/>
+		</copy>
+
+		<javac destdir="war/WEB-INF/classes" debug="on" debuglevel="lines,vars,source" encoding="utf-8" target="1.5" 
+    	source="1.5" srcdir="src" deprecation="yes" failonerror="false" classpathref="classpath">
+		</javac>
+	</target>
+
+	<target name="db" description="Run HsqlDb DATABASE.">
+		<java classname="org.hsqldb.Server" dir="db" fork="yes" classpathref="classpath.hsqldb">
+			<arg line="-database.0 'petclinic' -dbname.0 'petclinic'"/>
+		</java>
+	</target>
+
+	<target name="run" depends="build" description="Runs in standalone container">
+		<echo message="Don't forget to run 'ant db' is a second console."/>
+		<echo message="Browse to http://localhost:2000/petclinic"/>
+		<java classname="org.mortbay.jetty.Server" dir="war" fork="yes">
+			<!--jvmarg line="-Xdebug -Xrunjdwp:server=y,transport=dt_socket,address=5999,suspend=n"/-->
+			<!--jvmarg line="-noverify -javaagent:d:/javarebel.jar"/-->
+			<arg value="../jetty.xml"/>
+			<classpath>
+				<path refid="classpath"/>
+				<path refid="classpath.jetty"/>
+				<path refid="classpath.hsqldb"/>
+			</classpath>
+		</java>
+	</target>
+
+</project>
+

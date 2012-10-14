@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/squill~svn/!svn/ver/240/trunk/src/squill/util
+END
+FieldHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/squill~svn/!svn/ver/163/trunk/src/squill/util/FieldHandler.java
+END
+BeanUtil.java
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/squill~svn/!svn/ver/163/trunk/src/squill/util/BeanUtil.java
+END
+StringUtil.java
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/squill~svn/!svn/ver/163/trunk/src/squill/util/StringUtil.java
+END
+ReflectUtils.java
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/squill~svn/!svn/ver/163/trunk/src/squill/util/ReflectUtils.java
+END
+ToString.java
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/squill~svn/!svn/ver/163/trunk/src/squill/util/ToString.java
+END
+ExceptionUtil.java
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/squill~svn/!svn/ver/163/trunk/src/squill/util/ExceptionUtil.java
+END
+FileUtil.java
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/squill~svn/!svn/ver/240/trunk/src/squill/util/FileUtil.java
+END

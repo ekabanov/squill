@@ -1,0 +1,107 @@
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/squill~svn/!svn/ver/131/trunk/samples/petclinic/war/WEB-INF/lib
+END
+jstl.jar
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/squill~svn/!svn/ver/130/trunk/samples/petclinic/war/WEB-INF/lib/jstl.jar
+END
+jta.jar
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/squill~svn/!svn/ver/130/trunk/samples/petclinic/war/WEB-INF/lib/jta.jar
+END
+dom4j-1.6.1.jar
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/squill~svn/!svn/ver/130/trunk/samples/petclinic/war/WEB-INF/lib/dom4j-1.6.1.jar
+END
+commons-dbcp.jar
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/squill~svn/!svn/ver/130/trunk/samples/petclinic/war/WEB-INF/lib/commons-dbcp.jar
+END
+commons-pool.jar
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/squill~svn/!svn/ver/130/trunk/samples/petclinic/war/WEB-INF/lib/commons-pool.jar
+END
+spring-webmvc.jar
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/squill~svn/!svn/ver/130/trunk/samples/petclinic/war/WEB-INF/lib/spring-webmvc.jar
+END
+commons-collections.jar
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/squill~svn/!svn/ver/130/trunk/samples/petclinic/war/WEB-INF/lib/commons-collections.jar
+END
+antlr-2.7.6.jar
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/squill~svn/!svn/ver/130/trunk/samples/petclinic/war/WEB-INF/lib/antlr-2.7.6.jar
+END
+connector.jar
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/squill~svn/!svn/ver/130/trunk/samples/petclinic/war/WEB-INF/lib/connector.jar
+END
+commons-lang.jar
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/squill~svn/!svn/ver/130/trunk/samples/petclinic/war/WEB-INF/lib/commons-lang.jar
+END
+commons-logging.jar
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/squill~svn/!svn/ver/130/trunk/samples/petclinic/war/WEB-INF/lib/commons-logging.jar
+END
+aspectjrt.jar
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/squill~svn/!svn/ver/130/trunk/samples/petclinic/war/WEB-INF/lib/aspectjrt.jar
+END
+standard.jar
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/squill~svn/!svn/ver/130/trunk/samples/petclinic/war/WEB-INF/lib/standard.jar
+END
+log4j-1.2.15.jar
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/squill~svn/!svn/ver/130/trunk/samples/petclinic/war/WEB-INF/lib/log4j-1.2.15.jar
+END
+spring.jar
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/squill~svn/!svn/ver/130/trunk/samples/petclinic/war/WEB-INF/lib/spring.jar
+END
+spring-aspects.jar
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/squill~svn/!svn/ver/130/trunk/samples/petclinic/war/WEB-INF/lib/spring-aspects.jar
+END
+aspectjweaver.jar
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/squill~svn/!svn/ver/130/trunk/samples/petclinic/war/WEB-INF/lib/aspectjweaver.jar
+END

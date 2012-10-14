@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/squill~svn/!svn/ver/153/trunk/samples/petclinic/src/org/springframework/samples/petclinic/web
+END
+ClinicBindingInitializer.java
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/squill~svn/!svn/ver/130/trunk/samples/petclinic/src/org/springframework/samples/petclinic/web/ClinicBindingInitializer.java
+END
+PetTypeEditor.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/squill~svn/!svn/ver/130/trunk/samples/petclinic/src/org/springframework/samples/petclinic/web/PetTypeEditor.java
+END
+EditPetForm.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/squill~svn/!svn/ver/130/trunk/samples/petclinic/src/org/springframework/samples/petclinic/web/EditPetForm.java
+END
+FindOwnersForm.java
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/squill~svn/!svn/ver/130/trunk/samples/petclinic/src/org/springframework/samples/petclinic/web/FindOwnersForm.java
+END
+EditOwnerForm.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/squill~svn/!svn/ver/153/trunk/samples/petclinic/src/org/springframework/samples/petclinic/web/EditOwnerForm.java
+END
+AddPetForm.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/squill~svn/!svn/ver/130/trunk/samples/petclinic/src/org/springframework/samples/petclinic/web/AddPetForm.java
+END
+ClinicController.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/squill~svn/!svn/ver/153/trunk/samples/petclinic/src/org/springframework/samples/petclinic/web/ClinicController.java
+END
+AddOwnerForm.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/squill~svn/!svn/ver/130/trunk/samples/petclinic/src/org/springframework/samples/petclinic/web/AddOwnerForm.java
+END
+MemoryClinic.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/squill~svn/!svn/ver/130/trunk/samples/petclinic/src/org/springframework/samples/petclinic/web/MemoryClinic.java
+END
+AddVisitForm.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/squill~svn/!svn/ver/130/trunk/samples/petclinic/src/org/springframework/samples/petclinic/web/AddVisitForm.java
+END
+package.html
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/squill~svn/!svn/ver/130/trunk/samples/petclinic/src/org/springframework/samples/petclinic/web/package.html
+END

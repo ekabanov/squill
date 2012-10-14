@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/squill~svn/!svn/ver/247/trunk/mgen/src/squill/mgen/naming
+END
+SameNaming.java
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/squill~svn/!svn/ver/247/trunk/mgen/src/squill/mgen/naming/SameNaming.java
+END
+PropertyOverrideNamingStrategy.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/squill~svn/!svn/ver/247/trunk/mgen/src/squill/mgen/naming/PropertyOverrideNamingStrategy.java
+END
+Conventions.java
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/squill~svn/!svn/ver/121/trunk/mgen/src/squill/mgen/naming/Conventions.java
+END
+Inflector.java
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/squill~svn/!svn/ver/235/trunk/mgen/src/squill/mgen/naming/Inflector.java
+END
+CamelCaseNaming.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/squill~svn/!svn/ver/247/trunk/mgen/src/squill/mgen/naming/CamelCaseNaming.java
+END
+PluralCamelCaseNaming.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/squill~svn/!svn/ver/247/trunk/mgen/src/squill/mgen/naming/PluralCamelCaseNaming.java
+END
+NamingStrategy.java
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/squill~svn/!svn/ver/247/trunk/mgen/src/squill/mgen/naming/NamingStrategy.java
+END
+LowerCaseNaming.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/squill~svn/!svn/ver/247/trunk/mgen/src/squill/mgen/naming/LowerCaseNaming.java
+END

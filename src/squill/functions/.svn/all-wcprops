@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/squill~svn/!svn/ver/257/trunk/src/squill/functions
+END
+BinaryOperatorSelectExpression.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/squill~svn/!svn/ver/163/trunk/src/squill/functions/BinaryOperatorSelectExpression.java
+END
+Operations.java
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/squill~svn/!svn/ver/256/trunk/src/squill/functions/Operations.java
+END
+OperationsHelper.java
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/squill~svn/!svn/ver/163/trunk/src/squill/functions/OperationsHelper.java
+END
+MultiOperatorBooleanExpression.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/squill~svn/!svn/ver/257/trunk/src/squill/functions/MultiOperatorBooleanExpression.java
+END
+UncheckedExpression.java
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/squill~svn/!svn/ver/163/trunk/src/squill/functions/UncheckedExpression.java
+END

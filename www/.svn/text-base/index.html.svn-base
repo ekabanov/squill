@@ -1,0 +1,49 @@
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />                                <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />                                <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />                                <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />                                <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />                                <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />                                <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />                                <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />                                <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+
+<p>Squill is a slick internal DSL for writing SQL queries in pure Java. 
+It uses the database metadata and generics to catch as many errors as possible during compilation and is almost completely typesafe.
+At the same time it is designed to allow everything SQL allows you to do, exactly the way SQL is meant to do it. 
+This means that you're encouraged to select only the data you need and no hidden queries are generated for you, leaving you in full control of the query performance.
+Squill also supports database-specific extensions, allowing you to both use advanced features and fully tweak your queries.</p>
+
+<p>
+Documentation:
+<ul>
+<li><a href="/docs/quickstart.html">Quick Start Guide</a></li>
+<li><a href="/docs/tutorial.html">Step-by-Step Example Tutorial</a></li>
+<li><a href="/docs/squill-devoxx08.pdf">Devoxx Presentation</a></li>
+<li><a href="/docs/Squill_mgen_documentation.pdf">Metadata generator documentation</a></li>
+<li><a href="/docs/Squill_documentation.pdf">DSL documentation</a></li>
+</ul>
+</p>   
+<p>
+Releases:
+<ul>
+<li>Squill 1.0 M1</li>
+<ul>
+<li><a href="/releases/squill-1.0-M1.zip">squill-1.0-M1.zip</a> (889 KB)</li>
+<li><a href="/releases/squill-with-examples-1.0-M1.zip">squill-with-examples-1.0-M1.zip</a> (10.2 MB)</li>
+</ul>
+<li>Squill 1.0 M2</li>
+<ul>
+<li><a href="/releases/squill-1.0-M2.zip">squill-1.0-M2.zip</a> (1.26 MB)</li>
+<li><a href="/releases/squill-with-examples-1.0-M2.zip">squill-with-examples-1.0-M2.zip</a> (10.7 MB)</li>
+</ul>
+</ul>
+</p>               
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-415716-6");
+pageTracker._trackPageview();
+} catch(err) {}</script>  
+               
+               
+               
+               
+               
+               
+              

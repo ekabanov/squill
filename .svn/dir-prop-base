@@ -1,0 +1,14 @@
+K 10
+svn:ignore
+V 89
+.settings
+bin
+build
+dist
+build.properties
+test.sql
+squill.iml
+cobertura.ser
+velocity.log
+
+END

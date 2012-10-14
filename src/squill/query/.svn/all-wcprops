@@ -1,0 +1,77 @@
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/squill~svn/!svn/ver/260/trunk/src/squill/query
+END
+Expression.java
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/squill~svn/!svn/ver/163/trunk/src/squill/query/Expression.java
+END
+JoinType.java
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/squill~svn/!svn/ver/163/trunk/src/squill/query/JoinType.java
+END
+MultiPartExpression.java
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/squill~svn/!svn/ver/163/trunk/src/squill/query/MultiPartExpression.java
+END
+WherePart.java
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/squill~svn/!svn/ver/163/trunk/src/squill/query/WherePart.java
+END
+Declaration.java
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/squill~svn/!svn/ver/163/trunk/src/squill/query/Declaration.java
+END
+SelectPart.java
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/squill~svn/!svn/ver/163/trunk/src/squill/query/SelectPart.java
+END
+QueryContext.java
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/squill~svn/!svn/ver/182/trunk/src/squill/query/QueryContext.java
+END
+BaseExpression.java
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/squill~svn/!svn/ver/163/trunk/src/squill/query/BaseExpression.java
+END
+FromPart.java
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/squill~svn/!svn/ver/163/trunk/src/squill/query/FromPart.java
+END
+QueryContextImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/squill~svn/!svn/ver/182/trunk/src/squill/query/QueryContextImpl.java
+END
+QueryPart.java
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/squill~svn/!svn/ver/163/trunk/src/squill/query/QueryPart.java
+END
+OrderByPart.java
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/squill~svn/!svn/ver/163/trunk/src/squill/query/OrderByPart.java
+END

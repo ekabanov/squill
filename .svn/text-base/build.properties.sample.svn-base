@@ -1,0 +1,5 @@
+database.driver=oracle.jdbc.driver.OracleDriver
+database.url=jdbc:oracle:thin:@127.0.0.1:1521:XE
+database.user=squill
+database.password=squill
+database.schema=SQUILL

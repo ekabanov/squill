@@ -1,0 +1,89 @@
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/squill~svn/!svn/ver/266/trunk/mgen/src/squill/mgen
+END
+ClassInspectionUtil.java
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/squill~svn/!svn/ver/253/trunk/mgen/src/squill/mgen/ClassInspectionUtil.java
+END
+TypeMap.java
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/squill~svn/!svn/ver/249/trunk/mgen/src/squill/mgen/TypeMap.java
+END
+MapForeignKey.java
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/squill~svn/!svn/ver/247/trunk/mgen/src/squill/mgen/MapForeignKey.java
+END
+Model.vm
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/squill~svn/!svn/ver/266/trunk/mgen/src/squill/mgen/Model.vm
+END
+DatabaseInfoReader.java
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/squill~svn/!svn/ver/249/trunk/mgen/src/squill/mgen/DatabaseInfoReader.java
+END
+DbColumn.java
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/squill~svn/!svn/ver/249/trunk/mgen/src/squill/mgen/DbColumn.java
+END
+MessageLogger.java
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/squill~svn/!svn/ver/89/trunk/mgen/src/squill/mgen/MessageLogger.java
+END
+MapTable.java
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/squill~svn/!svn/ver/249/trunk/mgen/src/squill/mgen/MapTable.java
+END
+DbForeignKey.java
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/squill~svn/!svn/ver/8/trunk/mgen/src/squill/mgen/DbForeignKey.java
+END
+VelocityTableCodeGenerator.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/squill~svn/!svn/ver/163/trunk/mgen/src/squill/mgen/VelocityTableCodeGenerator.java
+END
+TableCodeGenerator.java
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/squill~svn/!svn/ver/89/trunk/mgen/src/squill/mgen/TableCodeGenerator.java
+END
+MapColumn.java
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/squill~svn/!svn/ver/265/trunk/mgen/src/squill/mgen/MapColumn.java
+END
+SquillMappingsTask.java
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/squill~svn/!svn/ver/254/trunk/mgen/src/squill/mgen/SquillMappingsTask.java
+END
+DbTable.java
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/squill~svn/!svn/ver/116/trunk/mgen/src/squill/mgen/DbTable.java
+END

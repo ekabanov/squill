@@ -1,0 +1,46 @@
+package squill.api.builder;
+
+import squill.api.expr.SelectExpression;
+import squill.api.callback.ResultCallback;
+#set ( $tuples = [1..$tupleCount] )
+#foreach ($tuple in $tuples)
+import squill.api.tuple.Tuple${tuple};
+#end
+import javax.sql.DataSource;
+import java.util.List;
+
+
+@SuppressWarnings("unchecked")
+public class OrderByBuilder extends BaseOrderByBuilder {
+
+  protected OrderByBuilder(DataSource dataSource) {
+    super(dataSource);
+  }
+
+
+#foreach ($i in $tuples)
+  /**
+   * Select ${i} value(s) as single object (not a list)
+   */
+  public <#gen($i "F")> #gtuple($i) select(#pselect($i)) {
+    return (#gtuple($i)) queryTuple(#tuple($i).class, #select($i));
+  }
+
+  /**
+   * Select ${i} value(s) as a list
+   */
+  public <#gen($i "F")> List<#gtuple($i)> selectList(#pselect($i)) {
+    return (List<#gtuple($i)>) queryTuples(#tuple($i).class, #select($i));
+  }
+
+  public <#gen($i "F"), R> List<R> selectCallback(#pselect($i), final ResultCallback<#gtuple($i), R> callback) {
+    final ResultCallback<#tuple($i), R> resultCallback = (ResultCallback<#tuple($i), R>) (Object) callback;
+    return queryCallback(#tuple($i).class, resultCallback, #select($i));
+  }
+
+  public <#gen($i "F")> ResultBuilder<#gtuple($i)> selectAs(#pselect($i)) {
+    addSelects(#select($i));
+    return new ResultBuilder<#gtuple($i)>(this, #tuple($i).class);
+  }
+#end
+}

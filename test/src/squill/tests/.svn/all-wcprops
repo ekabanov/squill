@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/squill~svn/!svn/ver/266/trunk/test/src/squill/tests
+END
+SelectTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/squill~svn/!svn/ver/259/trunk/test/src/squill/tests/SelectTest.java
+END
+ParameterTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/squill~svn/!svn/ver/163/trunk/test/src/squill/tests/ParameterTest.java
+END
+UpdateTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/squill~svn/!svn/ver/183/trunk/test/src/squill/tests/UpdateTest.java
+END
+AutoIdTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/squill~svn/!svn/ver/183/trunk/test/src/squill/tests/AutoIdTest.java
+END
+initdb.sql
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/squill~svn/!svn/ver/248/trunk/test/src/squill/tests/initdb.sql
+END
+petclinic.sql
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/squill~svn/!svn/ver/110/trunk/test/src/squill/tests/petclinic.sql
+END
+OperatorTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/squill~svn/!svn/ver/163/trunk/test/src/squill/tests/OperatorTest.java
+END
+CallbackSelectTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/squill~svn/!svn/ver/163/trunk/test/src/squill/tests/CallbackSelectTest.java
+END
+OrmTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/squill~svn/!svn/ver/266/trunk/test/src/squill/tests/OrmTest.java
+END
+TestUtil.java
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/squill~svn/!svn/ver/163/trunk/test/src/squill/tests/TestUtil.java
+END

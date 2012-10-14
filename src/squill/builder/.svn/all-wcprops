@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/squill~svn/!svn/ver/261/trunk/src/squill/builder
+END
+ResultAdapter.java
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/squill~svn/!svn/ver/185/trunk/src/squill/builder/ResultAdapter.java
+END
+BaseBuilder.java
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/squill~svn/!svn/ver/182/trunk/src/squill/builder/BaseBuilder.java
+END
+ResultBuilder.java
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/squill~svn/!svn/ver/185/trunk/src/squill/builder/ResultBuilder.java
+END
+SelWhereBuilder.java
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/squill~svn/!svn/ver/163/trunk/src/squill/builder/SelWhereBuilder.java
+END
+SelectBuilder.java
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/squill~svn/!svn/ver/258/trunk/src/squill/builder/SelectBuilder.java
+END
+UpWhereBuilder.java
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/squill~svn/!svn/ver/182/trunk/src/squill/builder/UpWhereBuilder.java
+END
+BaseOrderByBuilder.java
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/squill~svn/!svn/ver/261/trunk/src/squill/builder/BaseOrderByBuilder.java
+END
+DeleteBuilder.java
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/squill~svn/!svn/ver/182/trunk/src/squill/builder/DeleteBuilder.java
+END
+UpdateBuilder.java
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/squill~svn/!svn/ver/163/trunk/src/squill/builder/UpdateBuilder.java
+END
+InsertBuilder.java
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/squill~svn/!svn/ver/185/trunk/src/squill/builder/InsertBuilder.java
+END
+OrderByBuilder.java
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/squill~svn/!svn/ver/163/trunk/src/squill/builder/OrderByBuilder.java
+END

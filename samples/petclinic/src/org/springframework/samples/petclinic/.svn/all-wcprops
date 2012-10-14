@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/squill~svn/!svn/ver/267/trunk/samples/petclinic/src/org/springframework/samples/petclinic
+END
+Clinic.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/squill~svn/!svn/ver/130/trunk/samples/petclinic/src/org/springframework/samples/petclinic/Clinic.java
+END
+NamedEntity.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/squill~svn/!svn/ver/130/trunk/samples/petclinic/src/org/springframework/samples/petclinic/NamedEntity.java
+END
+Person.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/squill~svn/!svn/ver/130/trunk/samples/petclinic/src/org/springframework/samples/petclinic/Person.java
+END
+BaseEntity.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/squill~svn/!svn/ver/130/trunk/samples/petclinic/src/org/springframework/samples/petclinic/BaseEntity.java
+END
+Pet.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/squill~svn/!svn/ver/130/trunk/samples/petclinic/src/org/springframework/samples/petclinic/Pet.java
+END
+Owner.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/squill~svn/!svn/ver/130/trunk/samples/petclinic/src/org/springframework/samples/petclinic/Owner.java
+END
+PetType.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/squill~svn/!svn/ver/130/trunk/samples/petclinic/src/org/springframework/samples/petclinic/PetType.java
+END
+Specialty.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/squill~svn/!svn/ver/130/trunk/samples/petclinic/src/org/springframework/samples/petclinic/Specialty.java
+END
+package.html
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/squill~svn/!svn/ver/130/trunk/samples/petclinic/src/org/springframework/samples/petclinic/package.html
+END
+Vet.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/squill~svn/!svn/ver/255/trunk/samples/petclinic/src/org/springframework/samples/petclinic/Vet.java
+END
+Visit.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/squill~svn/!svn/ver/130/trunk/samples/petclinic/src/org/springframework/samples/petclinic/Visit.java
+END

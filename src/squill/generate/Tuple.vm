@@ -1,0 +1,43 @@
+package $pkg;
+
+import squill.api.tuple.Tuple;
+
+public class #ttuple($i) implements Tuple {
+  #foreach ($idx in [1..$i])
+  public final T$idx v$idx;
+  #end
+  public #tuple($i)(#pvalue($i)) {
+  #foreach ($idx in [1..$i])
+    this.v$idx = v$idx;
+  #end
+  }
+
+  public static <#gen($i "P")> Tuple$i<#gen($i "P")> _(#join($i "P$idx v$idx" ',')) {
+    return new Tuple$i<#gen($i "P")>(#gen($i "v"));
+  }
+
+  @Override
+  public String toString() {
+    return "(" + #join($i "v$idx" ' +","+ ') + ")";
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+    Tuple$i tuple = (Tuple$i) o;
+    #foreach ($idx in [1..$i])
+    if (v$idx == null ? tuple.v$idx != null : !v${idx}.equals(tuple.v$idx)) return false;
+    #end
+    return true;
+  }
+
+  @Override
+  public int hashCode() {
+    int result = 0;
+    #foreach ($idx in [1..$i])
+    result = 31 * result + (v$idx != null ? v${idx}.hashCode() : 0);
+    #end
+    return result;
+  }
+}

@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 38
+/svn/squill~svn/!svn/ver/246/trunk/lib
+END
+asm-all-3.2.jar
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/squill~svn/!svn/ver/243/trunk/lib/asm-all-3.2.jar
+END
+velocity-1.6.4-dep.jar
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/squill~svn/!svn/ver/243/trunk/lib/velocity-1.6.4-dep.jar
+END
+commons-logging-1.1.1.jar
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/squill~svn/!svn/ver/165/trunk/lib/commons-logging-1.1.1.jar
+END

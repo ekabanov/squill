@@ -1,0 +1,172 @@
+#set($model = ${table.JavaName})
+#set($columns = $table.Columns.values())
+#if ($table.isReadOnly())
+  #set($tableType = "ReadableTable")
+#else
+  #set($tableType = "WritableTable")
+#end
+package $pkg;
+
+import squill.Squill;
+import squill.query.select.Column;
+import squill.query.select.ReadableTable;
+import squill.query.select.WritableTable;
+import squill.query.from.OrmJoin;
+import squill.query.JoinType;
+import java.util.Date;
+import java.util.Collection;
+import java.util.List;
+import java.util.ArrayList;
+import static java.lang.String.format;
+import static squill.functions.Operations.*;
+
+/**
+ * This class was generated automatically by SquillGen. 
+ * Do not edit anything in this class. Your changes will be lost after the SquillGen runs again.
+ */
+public class $model #if($table.hasModelClass()) extends $table.ModelClassName #end
+implements#if($table.isReadOnly() || !$table.hasPrimaryKey()) squill.ReadableDataObject#else squill.WritableDataObject #end{
+
+#foreach ($column in $columns )
+#if (!$column.HasProperty) 
+	private ${column.JavaType} ${column.JavaName};
+#end
+#end
+	public ${model}() {
+		super();
+	}
+#if ($table.hasModelClass())
+
+	public ${model}(${table.ModelClassName} model) {
+#foreach ($column in $columns )
+#if ($column.HasProperty)
+		this.set${column.PropertyName}(model.get${column.PropertyName}());
+#end
+#end  
+	} 
+
+	public static List<${table.ModelClassName}> fromDataList(Collection<$model> col) {
+		List<${table.ModelClassName}> result = new ArrayList<${table.ModelClassName}>();
+		for ($model item : col) {
+			result.add(item);
+		}
+		return result;
+	}
+
+	public static List<$model> toDataList(Collection<${table.ModelClassName}> col) {
+		List<$model> result = new ArrayList<$model>();
+		for (${table.ModelClassName} item : col) {
+			result.add(new ${model}(item));
+		}
+		return result;
+	}
+#end  
+
+#foreach ($column in $columns )
+#if (!$column.HasProperty)
+	public ${column.JavaType} get${column.PropertyName}() { 
+		return ${column.JavaName}; 
+	}
+	
+	public void set${column.PropertyName}(${column.JavaType} ${column.JavaName}) { 
+		this.${column.JavaName} = ${column.JavaName}; 
+	}
+	
+#end
+#end
+#if ($table.hasPrimaryKey())
+
+	public static $model get(Squill squill, ${table.PrimaryKey.JavaType} ${table.PrimaryKey.JavaName}) {
+		${table.RefName} t = new ${table.RefName}();
+		return squill.from(t).where(eq(t.${table.PrimaryKey.JavaName}, ${table.PrimaryKey.JavaName})).select(t);
+	}   
+  
+	public void update(Squill squill) {
+		${table.RefName} t = new ${table.RefName}();
+		squill
+		.update(t)
+		.where(eq(t.${table.PrimaryKey.JavaName}, get${table.PrimaryKey.PropertyName}()))
+		.set(
+#foreach ($column in $table.NonPrimaryColumns )
+			updateElement(t.${column.JavaName}, get${column.PropertyName}())#if ($velocityCount < $table.NonPrimaryColumns.size()), 
+#end
+#end);
+	}  
+	
+	public void insert(Squill squill) {
+		${table.RefName} t = new ${table.RefName}();
+		squill
+		.insert(t)
+		.values(
+#foreach ($column in $columns)
+#if($column != $table.PrimaryKey) 
+			insertElement(t.${column.JavaName}, get${column.PropertyName}())#if ($velocityCount < $columns.size()), 
+#end
+#else
+			insertElement(t.${column.JavaName}, unchecked(${column.JavaType}.class, "null"))#if ($velocityCount < $columns.size()), 
+#end
+#end  
+#end);
+	}  
+	
+	public void delete(Squill squill) {
+		${table.RefName} t = new ${table.RefName}();
+		squill
+		.delete(t)
+		.where(eq(t.${table.PrimaryKey.JavaName}, get${table.PrimaryKey.PropertyName}()));
+	}  
+	
+#end
+	public static class $table.RefName extends $tableType<$model> {
+	    @Override
+	    public String getTableName() { return "${table.Name.toLowerCase()}"; }
+	
+	    @Override
+	    public Class<$model> getTableType() { return ${model}.class; }
+	
+	    public ${table.RefName}() { }
+	
+	    public ${table.RefName}(String alias) {
+	        super(alias);
+	    }
+	
+#foreach ($column in $columns )
+	    public final Column<$column.JavaType, $model> ${column.JavaName} =
+	        new Column<$column.JavaType, $model>("${column.Name}", ${column.JavaType}.class, "${column.JavaName}", this);
+#end
+    
+#foreach ($foreignKey in ${table.ForeignKeys})
+		private class ${foreignKey.JoinInnerClassName} extends ${foreignKey.TargetTableJavaClassName} implements OrmJoin {
+			public ReadableTable getTable() {
+		  		return ${foreignKey.JoinInnerClassName}.this;
+			}
+
+			public Column<?, ?> getSource() {
+				return ${table.RefName}.this.${foreignKey.SourceColumnName};
+			}
+		  
+	  		public Column<?, ?> getTarget() {
+	  			return ${foreignKey.JoinInnerClassName}.this.${foreignKey.TargetColumnName};
+	  		}
+  		
+	  		public JoinType getJoinType() {
+	  			return JoinType.INNER;
+	  		} 
+		  
+			public boolean isJoin() {
+				return true;
+			}
+		};
+		      
+		private ${foreignKey.TargetTableJavaClassName} ${foreignKey.JoinFieldName};
+		
+		public ${foreignKey.TargetTableJavaClassName} ${foreignKey.JoinFieldName}() {
+			if (${foreignKey.JoinFieldName} == null){
+				${foreignKey.JoinFieldName} = new ${foreignKey.JoinInnerClassName}();
+			}
+			return ${foreignKey.JoinFieldName};
+		}
+		
+#end
+	}
+}

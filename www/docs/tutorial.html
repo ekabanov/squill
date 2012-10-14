@@ -1,0 +1,345 @@
+<html>
+<head><title>Squill Step-By-Step Tutorial</title></head>
+<body>
+<h1>Squill Step-By-Step Tutorial</h1>
+
+<p>Squill is a slick internal DSL for writing SQL queries in pure Java. 
+It uses the database metadata and generics to catch as many errors as possible during compilation and is almost completely typesafe.
+At the same time it is designed to allow everything SQL allows you to do, exactly the way SQL is meant to do it. 
+This means that you're encouraged to select only the data you need and no hidden queries are generated for you, leaving you in full control of the query performance.
+Squill also supports database-specific extensions, allowing you to both use advanced features and fully tweak your queries.</p>
+
+<h2>1. Squill Metadata</h2>
+
+<p>The first step in setting up your project to use Squill is use the SqullGen to generate the Table classes according to your table metadata. 
+This can be done from the Ant build script by using the following snippet:</p>
+
+<pre>
+ &lt;target
+   name="squill-gen"&gt;
+
+   &lt;taskdef
+      name="squill-gen"
+   	classpathref="classpath"
+     classname="squill.mgen.SquillMappingsTask"/&gt;
+ 	
+   &lt;squill-gen
+     driver="org.hsqldb.jdbcDriver"
+     url="jdbc:hsqldb:hsql://localhost/petclinic"
+     schema="PUBLIC"
+     user="SA"
+     password=""
+     packageName="org.springframework.samples.petclinic.data"
+     outputPath="samples/petclinic/src"&gt;   	
+   &lt;/squill-gen&gt;
+ &lt;/target>
+</pre>
+
+<p>This example snippet is used for the Spring PetClinic example application.  
+Most of the attributes are self-describing and familiar to anyone who ever opened a JDBC connection. 
+The <code>packageName</code> attribute sets the package name used for generated classes. 
+The <code>outputPath</code> attribute sets the directory that will be used to save the generated classes 
+(the package directories are included in the resulting path and will be created if necessary).</p>
+
+<h2>2. Basic Queries</h2>
+
+<p>The next step in setting up the <code>Squill</code> object. Basically you just need to pass a <code>DataSource</code> to its constructor. 
+You may use dependency injection to inject the <code>Squill</code> object as it is thread-safe.</p>
+
+<pre>
+  Squill squill = new Squill(dataSource);
+</pre>
+
+<p>The <code>Squill</code> object provides an entry point to the DSL. For the queries the first call must always be <code>from()</code>. 
+However this method takes an instance of a table class, generated in the previous section. 
+Therefore before building the query you should instantiate the tables you intend to use:</p>
+
+<pre>
+  PetTable pets = new PetTable();
+</pre>
+
+<p>The table object represent a table alias. 
+There can be several instances of the same table class, which are just taken to be different aliases of the same table in the query. 
+Every table object also contains all of the table columns as fields of the special <code>Column</code> type 
+as you can see from the following (purely illustrative) snippet:</p>
+
+<pre>
+  Column&lt;String, ?&gt; petName = pets.name;
+  Column&lt;Date, ?&gt; petBirthDate = pets.birthDate;
+</pre>
+
+<p>The actual query is built using method chaining of the <code>Squill</code> object methods: </p>
+
+<pre>
+  List&lt;Tuple2&lt;String, Date&gt;&gt; result = 
+    squill
+    .from(pets)
+    .selectList(pets.name, pets.birthDate);
+    
+  for (Tuple2&lt;String, Date&gt; pet : result) {
+    System.out.println("Pet " + pet.v1 + " born on " + pet.v2);
+  }
+</pre>			
+
+<p>The first thing to notice in this code snippet is the type of the <code>result</code> variable. 
+Squill uses <em>tuple</em> types to encode rows of values with types known ahead. 
+The tuples are available from <code>Tuple2</code> to <code>Tuple10</code> encoding accordingly two to ten values in a row.
+<code>Tuple1</code> is not provided and is replaced by the value itself (i.e. <code>Tuple1&lt;T&gt; -&gt; T</code>). 
+Tuples have fields v<em>n</em> that hold the <em>n</em><sup>th</sup> value in the row. 
+Note that since the table columns are generified the resulting tuple type is verified by the compiler and can be inferred by the IDE.</p>
+
+<p>Another thing to notice is that we write <code>selectList()</code> instead of <code>select()</code>. 
+By convention the first one returns a list of results, whereas the second one returns only one unique result.</p>
+
+<p>There is a useful idiom that can be used with Squill when selecting a list of results and then iterating over it. 
+Namely you can include the query in the enhanced for-loop without defining an intermediate <code>result</code> variable:</p>
+
+<pre>
+  for (Tuple2&lt;String, Date&gt; pet : 
+    squill
+      .from(pets)
+      .selectList(pets.name, pets.birthDate)) {
+    System.out.println("Pet " + pet.v1 + " born on " + pet.v2);
+  }
+</pre>	
+
+<h2>3. Operations: Conditions, Joins and Functions</h2>
+
+<p>Unlike the common method chaining approach Squill uses static function for most of the individual operations. 
+We suggest adding an <code>import static squill.api.functions.Operations.*;</code> line to your imports. 
+Then you'll have everything you need in your current scope.
+</p>
+
+<p>Once you've done that you can use the conditional operators like <code>eq</code>, <code>like</code> and so on just the way you'd expect:</p>
+
+<pre>
+  squill
+    .from(pets)
+    .where(eq(pets.id, 1))
+    .selectList(pets.name, pets.birthDate));
+</pre>	
+
+<p>Conditions may be combined using usual SQL boolean operators:</p>
+
+<pre>
+  squill
+    .from(pets)
+    .where(
+      and(
+        not(eq(pets.id, 1)), 
+        or(
+          like(pets.name, "P%"),
+          gt(pets.birthDate, new Date())
+        )
+      ))
+    .selectList(pets.name, pets.birthDate);
+</pre>	
+
+<p>You can use values or variables freely as Squill will set them as parameters preventing any kind of SQL injection.</p>
+
+<p>Joins can be done both using usual conditions, or a specialized <code>join/leftJoin/rightJoin</code> operators:</p>
+<pre>
+  squill
+    .from(pet, join(owner, owner.id, pet.ownerId))
+    .where(like(owner.lastName, "Claw%"))
+    .select(pet.name);
+</pre>
+
+<p>Adding <i>order by</i> and other query clauses is just as easy. 
+Sometimes you'll need a wrapper from <code>Operations</code>, like <code>asc</code> in this case:</p>
+
+<pre>
+  squill
+    .from(pet, join(owner, owner.id, pet.ownerId))
+    .where(like(owner.lastName, "Claw%"))
+    .orderBy(asc(pet.name))
+    .select(pet.name);
+</pre>
+
+<p>You may also use different SQL functions to create both select and where expressions:</p>
+
+<pre>
+  squill
+    .from(pet, join(owner, owner.id, pet.ownerId))
+    .where(like(owner.lastName, "Claw%"))
+    .orderBy(asc(pet.name))
+    .select(concat(owner.lastName, ", " owner.firstName));
+</pre>
+
+<p>If you need to use the expression elsewhere (typically in <i>order by</i>) you can also save it in a variable 
+and Squill will take care of aliases for you:</p>
+
+<pre>
+  SelectExpression&lt;String&gt; fullName =
+    concat(owner.lastName, ", " owner.firstName);
+    
+  squill
+    .from(pet, join(owner, owner.id, pet.ownerId))
+    .where(like(fullName, "Claw%"))
+    .orderBy(asc(fullName))
+    .select(fullName);
+</pre>
+
+<p>Note that you can always use <code>fullName</code> in <i>where</i> clause as the full expression will be inserted instead of the alias, 
+which is only supported on a few database servers.</p>
+
+<p>If you need to insert a piece of raw SQL you can do that by just providing the type:</p>
+
+<pre>
+  SelectExpression&lt;String&gt; fullName =
+    concat(owner.lastName, ", " owner.firstName);
+    
+  squill
+    .from(pet, join(owner, owner.id, pet.ownerId))
+    .where(like(fullName, "Claw%"))
+    .orderBy(asc(fullName))
+    .select(unchecked(Integer.class, "count(*)"));
+</pre>
+
+<p>Finally, to make a subquery you just save it in a variable as you did with a usual expression:</p>
+
+<pre>
+   SelectExpression&lt;Integer&gt; ownerPetCount =
+     squill
+       .from(pet)
+       .where(eq(pet.ownerId, owner.id))
+       .subSelect(unchecked(Integer.class, "count(*)"));
+
+  List&lt;Tuple2&lt;OwnerData, Integer&gt;&gt; res =
+    squill
+      .from(owner)
+      .where(ge(ownerPetCount, 2)
+      .orderBy(ownerPetCount)
+      .selectList(owner, ownerPetCount);
+</pre>
+
+<h2>4. Insert, Update and Delete</h2>
+
+<p>Insert, update and delete statements are available by starting with correspondingly 
+<code>squill.insert()</code>, <code>squill.update()</code> and <code>squill.delete()</code>.
+The use the same approaches and largely the same operators as the <i>select</i> clause.</p>
+
+<p>Insert example:</p>
+
+<pre>
+  squill
+  .insert(pet)
+  .values(
+      insertElement(pet.id, 7),
+      insertElement(pet.name, "Lassy"),
+</pre>
+
+<p>Update example:</p>
+
+<pre>
+  squill
+  .update(pet)
+  .where(eq(pet.id, 7))
+  .set(updateElement(pet.name, "Bolt"));
+</pre>
+
+<p>Delete example:</p>
+
+<pre>
+  squill
+  .delete(pet)
+  .where(eq(pet.id, 7));
+</pre>
+
+<h2>5. Lightweight ORM </h2>
+
+<p>Although Squill does not support ORM in the classical sense, it does use the database metadata to generate <i>data</i> classes, 
+that can be used to hold values of one database row. Theses can be used to manipulate rows as is common in ORM frameworks. 
+However there is no support for any kind of advanced mapping of fields to table columns 
+and the data classes reflect the database tables exactly as is (except for name changes).</p>
+
+<p>To select data objects from the database just use your table object in <i>select</i> clause:</p>
+
+<pre>
+  for (PetData pet : 
+    squill.from(pet).selectList(pet) {
+    System.out.println("Pet's name: " + pet.getName());
+  }
+</pre> 
+
+<p>Squill has special support for one-to-one and one-to-many relations, similar to the relation navigation in ORM frameworks. 
+However unlike many ORM solutions we require all tables participating in joins to be listed in the <i>from</i> clause:<p>
+
+<pre>
+  squill
+    .from(pet, pet.owner)
+    .where(like(pet.owner.lastName, "Claw%"))
+    .select(pet.name);
+</pre>  
+
+<p>The basic CRUD (create, read, update and delete) is covered by generated methods in the data classes:</p>
+
+<pre>
+  // Create
+  PetData pet = new PetData();
+  pet.setName("Weevil");
+  pet.insert(squill); // Also updates the primary key  
+  // Read
+  pet = PetData.get(squill, 10);
+  // Update
+  pet.setName("Kafka");
+  pet.update(squill);
+  // Delete
+  pet.delete(squill);
+</pre> 
+
+<h2>6. Existing Beans and Conversions</h2>
+
+<p>So far we've been assuming that you use only Squill to access the database, but it is not always possible to start a fresh project 
+every time a technology changes. Therefore we also support mixing Squill with existing data beans. However we still do not
+support any advanced mappings, so only simple one column one field mappings will be supported automatically. </p>
+
+<p>To enable the support for existing beans you should provide them to our Ant task. 
+This is done using a simple <i>fileset</i> although those classes and their superclasses 
+should also be available on the classpath for this to work properly:</p>
+
+<pre>
+ &lt;target
+   name="squill-gen"&gt;
+
+   &lt;taskdef
+      name="squill-gen"
+   	classpathref="classpath"
+     classname="squill.mgen.SquillMappingsTask"/&gt;
+ 	
+   &lt;squill-gen
+     driver="org.hsqldb.jdbcDriver"
+     url="jdbc:hsqldb:hsql://localhost/petclinic"
+     schema="PUBLIC"
+     user="SA"
+     password=""
+     packageName="org.springframework.samples.petclinic.data"
+     outputPath="samples/petclinic/src"
+     namingoverride="squill.properties"&gt;   
+     &lt;fileset dir="war/WEB-INF/classes/org/springframework/samples/petclinic/" includes="*.class"/&gt;	
+   &lt;/squill-gen&gt;
+ &lt;/target>
+</pre>
+
+<p>If Squill finds an existing class from that fileset that matches the name of the data class 
+it will make the data class extend the found class. E.g. If existing class <code>Pet</code> is found then
+the <code>PetData</code> class will extend it. This makes it possible to use the data objects where original beans are expected.</p>
+
+<p>Squill also will generate a data object constructor that takes a superclass instance. E.g. <code>PetData</code> will have
+a constructor <code>PetData(Pet pet)</code>. This constructor will copy all the data fields from the bean and can be used to 
+convert it when a data object is expected (mainly for Squill API). As Java generics are invariant we also provide generated static methods 
+<code>fromDataList()</code> and <code>toDataList()</code>, which convert correspondingly collection of data object to a 
+collection of beans and back.</p>
+
+<p>Finally you may have noticed that we added an extra attribute to our Ant task: <code>namingoverride</code>. This should point
+to a property file (<code>squill.properties</code> in our case) and contains an optional mapping from the database names to 
+data class names:</p>
+
+<pre>
+MY_WEIRD_TABLE=MyObject # different name for a table/data class
+MY_WEIRD_TABLE.MY_WEIRD_FIELD=myField # Different name for a column/field
+</pre>
+
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/squill~svn/!svn/ver/134/trunk/samples/lib/jetty
+END
+j2ee.jar
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/squill~svn/!svn/ver/133/trunk/samples/lib/jetty/j2ee.jar
+END
+jasper-runtime.jar
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/squill~svn/!svn/ver/133/trunk/samples/lib/jetty/jasper-runtime.jar
+END
+commons-el.jar
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/squill~svn/!svn/ver/134/trunk/samples/lib/jetty/commons-el.jar
+END
+jasper-compiler.jar
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/squill~svn/!svn/ver/133/trunk/samples/lib/jetty/jasper-compiler.jar
+END
+org.mortbay.jetty.jar
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/squill~svn/!svn/ver/133/trunk/samples/lib/jetty/org.mortbay.jetty.jar
+END

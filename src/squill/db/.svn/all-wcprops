@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/squill~svn/!svn/ver/240/trunk/src/squill/db
+END
+StatementCallback.java
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/squill~svn/!svn/ver/163/trunk/src/squill/db/StatementCallback.java
+END
+SingleResultStatementCallback.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/squill~svn/!svn/ver/182/trunk/src/squill/db/SingleResultStatementCallback.java
+END
+Database.java
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/squill~svn/!svn/ver/240/trunk/src/squill/db/Database.java
+END
+TypedSQLException.java
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/squill~svn/!svn/ver/163/trunk/src/squill/db/TypedSQLException.java
+END
+UpdateStatementCallback.java
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/squill~svn/!svn/ver/183/trunk/src/squill/db/UpdateStatementCallback.java
+END
+TooManyResultsException.java
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/squill~svn/!svn/ver/163/trunk/src/squill/db/TooManyResultsException.java
+END
+DataTypeUtil.java
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/squill~svn/!svn/ver/163/trunk/src/squill/db/DataTypeUtil.java
+END
+DatabaseDialect.java
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/squill~svn/!svn/ver/182/trunk/src/squill/db/DatabaseDialect.java
+END
